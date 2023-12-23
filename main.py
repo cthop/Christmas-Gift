@@ -188,6 +188,8 @@ def end_game():
         "bottom_left": (534, 909),
         "bottom_right": (614, 909),
     }
+    end_x = 1645
+    end_y = 1028
 
     names = [
         "Dudu", "Doodoo", "Dudoo", "Doodu", "Doo-Doo", "Du-Du", "Doudou",
@@ -215,10 +217,14 @@ def end_game():
 
     while True:
         mouse_x, mouse_y = pygame.mouse.get_pos()
-
         # Check if mouse is inside the bounding box
-        inside_bounding_box = plushy_bounding_box["top_left"][0] <= mouse_x <= plushy_bounding_box["top_right"][0] and \
-                              plushy_bounding_box["top_left"][1] <= mouse_y <= plushy_bounding_box["bottom_left"][1]
+        inside_bounding_box = ((plushy_bounding_box["top_left"][0] / end_x * screen_width
+                                <= mouse_x <=
+                                plushy_bounding_box["top_right"][0] / end_x * screen_width)
+                               and
+                               (plushy_bounding_box["top_left"][1] / end_y * screen_height
+                                <= mouse_y <=
+                                plushy_bounding_box["bottom_left"][1] / end_y * screen_height))
 
         if inside_bounding_box and not hover_effect_active:
             hover_effect_active = True
