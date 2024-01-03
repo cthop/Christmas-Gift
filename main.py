@@ -324,7 +324,7 @@ def intro_screen():
     initial_color = (231, 101, 253)
 
     today = datetime.date.today()
-    is_christmas = today.month == 12 and today.day in [25, 26, 27]
+    is_christmas = True
 
     button_text = 'UNWRAP' if is_christmas else 'Not Yet Rach'
 

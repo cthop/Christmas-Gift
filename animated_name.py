@@ -1,6 +1,7 @@
 import pygame
 import random
 
+
 class AnimatedName:
     def __init__(self, name, start_position, duration, font_size, color=(255, 255, 255)):
         self.name = name
